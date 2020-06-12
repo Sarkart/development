@@ -34,4 +34,23 @@ def game_core_v2(number):
             predict -= 1
     return(count) # выход из цикла, если угадали
 
-score_game(game_core_v2)
+def game_core_v3(number):
+    """Берём среднее между минимальным и максимальным значениями, далее проверяем наше число с загаданным.
+    В зависимости от того, меньше или больше нужного наше число,
+    функция сокращает область поиска в два раза в нужную сторону"""
+    count = 1
+    bottom = 1
+    top = 100
+    predict = (bottom+top) // 2
+    while number != predict:
+        count += 1
+        predict = (bottom + top) // 2 #необходимо повторить операцию, иначе область поиска будет сужаться медленнее
+        if number > predict:
+            bottom = predict + 1
+            predict += 1
+        else:
+            top = predict - 1
+            predict -= 1
+    return(count) # выход из цикла, если угадали
+
+score_game(game_core_v3)
