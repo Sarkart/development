@@ -50,7 +50,7 @@ def game_core_v3(number):
         count += 1
         predict = (bottom+top) // 2     # необходимо повторить операцию, иначе область поиска будет сужаться медленнее
         if number > predict:
-            bottom = predict + 1        # если загаданное число больше, увеличиваем нижнюю границу поиска
+            bottom = predict + 1        # если загаданное число меньше, поднимаем нижнюю границу поиска
             predict += 1
         else:
             top = predict - 1
